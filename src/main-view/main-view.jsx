@@ -5,7 +5,9 @@ import { db } from './../../src/firebase.js';
 import { collection, query, orderBy, onSnapshot, addDoc, serverTimestamp } from 'firebase/firestore';
 const q = query(collection(db, 'todos'), orderBy('timestamp', 'desc'));
 
-export const MainView = () => {
+export const MainView = () => {     
+        
+        
     const [todos, setTodos] = useState([]);
     const [input, setInput] = useState('');
     useEffect(() => {
@@ -18,13 +20,21 @@ export const MainView = () => {
     }, [input]);
     const addTodo = (e) => {
         e.preventDefault();
+        if(!input){
+            return null
+        } 
+        else{
+        
         addDoc(collection(db, "todos"), {
+            
           todo: input,
           timestamp: serverTimestamp(),
         });
         setInput("");
-      };
+      }};
+      
     return (
+        <>
         <div className="App">
             <h2 style={{color:"#529fcc"}}> TODO List App</h2>
             <form>
@@ -36,5 +46,10 @@ export const MainView = () => {
             {todos.map(item => <ToDo key={item.id} arr={item} />)}
             </ul>
         </div>
+        <div className="modal" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        
+        
+    </div>
+    </>
     )
 }

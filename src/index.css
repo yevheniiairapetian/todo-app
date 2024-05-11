@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
@@ -19,14 +20,15 @@ code {
   width: 60vw;
   border: 1px solid lightgray;
   margin-bottom: 10px !important;
+  
   }
 
-  h2{	
+  /* h2{	 */
     /* background-color:#cfe2ff; */
-    animation: navbar 1s ease-in;
-  }
+    /* animation: navbar 1s ease-in;
+  } */
   
-  @keyframes navbar{
+  @keyframes fadeIn{
     0%{margin-top:-28px;
     
     }

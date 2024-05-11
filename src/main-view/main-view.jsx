@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { TextField, Button } from '@mui/material';
 import { db } from './../../src/firebase.js';
 import { collection, query, orderBy, onSnapshot, addDoc, serverTimestamp } from 'firebase/firestore';
+import $ from 'jquery';
 const q = query(collection(db, 'todos'), orderBy('timestamp', 'desc'));
 
 export const MainView = () => {     
@@ -10,6 +11,7 @@ export const MainView = () => {
         
     const [todos, setTodos] = useState([]);
     const [input, setInput] = useState('');
+    
     useEffect(() => {
         onSnapshot(q, (snapshot) => {
             setTodos(snapshot.docs.map(doc => ({
@@ -21,6 +23,7 @@ export const MainView = () => {
     const addTodo = (e) => {
         e.preventDefault();
         if(!input){
+            $('#exampleModal').fadeIn();
             return null
         } 
         else{
@@ -46,10 +49,25 @@ export const MainView = () => {
             {todos.map(item => <ToDo key={item.id} arr={item} />)}
             </ul>
         </div>
-        <div className="modal" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title fs-5" id="exampleModalLabel">Notice</h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<p class="dialog-paragraph">Please type in the new to-do and click <em>"Add New To-do"
+								button or press "Enter" key</em>.</p>
+					</div>
+					<div class="modal-footer">
+						<button onClick={() => {$('#exampleModal').fadeOut()}} type="button" class="button" data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
         
-        
-    </div>
+    
     </>
     )
 }

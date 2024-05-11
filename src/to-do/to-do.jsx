@@ -11,7 +11,7 @@ export const ToDo = ({ arr }) => {
       </ListItem>
       <DeleteIcon
         fontSize="large"
-        style={{ opacity: 0.7 }}
+        style={{ opacity: 0.7, color:"red" }}
         onClick={() => {
           deleteDoc(doc(db, "todos", arr.id));
         }}

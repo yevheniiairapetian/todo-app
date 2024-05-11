@@ -16,7 +16,32 @@ code {
   display:flex;
   justify-content: center;
   align-items: center;
-  width: 800px;
+  width: 60vw;
   border: 1px solid lightgray;
   margin-bottom: 10px !important;
+  }
+
+  h2{	
+    /* background-color:#cfe2ff; */
+    animation: navbar 1s ease-in;
+  }
+  
+  @keyframes navbar{
+    0%{margin-top:-28px;
+    
+    }
+  
+    100%{
+      margin-top:0px;
+    }
+  }
+
+  @media screen and (max-width:800px){
+    .todo__list{
+      width: 90vw;
+      
+      }
+      .to-do-container{
+        padding-left: 0;
+      }
   }

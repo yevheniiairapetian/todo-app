@@ -1,5 +1,7 @@
 .App {
-  display:grid;
-  place-items:center;
   animation: fadeIn 1s ease-in;
+  height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }

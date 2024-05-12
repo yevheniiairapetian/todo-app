@@ -1,9 +1,10 @@
 import { ToDo } from "../to-do/to-do";
 import React, { useState, useEffect } from 'react';
 import { TextField, Button } from '@mui/material';
-import { db } from './../../src/firebase.js';
+import { db } from '../../firebase.js';
 import { collection, query, orderBy, onSnapshot, addDoc, serverTimestamp } from 'firebase/firestore';
 import $ from 'jquery';
+import { Footer } from "../footer/footer.jsx";
 const q = query(collection(db, 'todos'), orderBy('timestamp', 'desc'));
 
 export const MainView = () => {     
@@ -48,7 +49,9 @@ export const MainView = () => {
             <ul className="to-do-container">
             {todos.map(item => <ToDo key={item.id} arr={item} />)}
             </ul>
+            
         </div>
+        <Footer/>
         <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">

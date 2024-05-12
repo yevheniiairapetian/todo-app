@@ -1,3 +1,8 @@
+html{
+  margin: 0;
+height: 100%;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,12 +10,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+  display: grid;
+  height: 100vh;
+  grid-template-rows: auto 1fr;
 }
 
 #exampleModal{
 	
-	display:none;}
+	display:none;
+position: absolute;
+top: 40%;}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -26,12 +35,14 @@ code {
   margin-bottom: 10px !important;
   
   }
-
-  /* h2{	 */
-    /* background-color:#cfe2ff; */
-    /* animation: navbar 1s ease-in;
-  } */
-  
+  footer{
+    padding:30px 0;
+    width: 100%;
+    height:120px;
+    background-color: #cfe2ff;
+    align-self: end;
+    margin-top: auto;
+  }  
   @keyframes fadeIn{
     0%{margin-top:-28px;
     

@@ -45,12 +45,12 @@ export const WelcomeView = () =>{
 
   const handleRegister = () => {
     if (registerInformation.email !== registerInformation.confirmEmail) {
-      alert("Please confirm that email are the same");
+      alert("Please repeat your email");
       return;
     } else if (
       registerInformation.password !== registerInformation.confirmPassword
     ) {
-      alert("Please confirm that password are the same");
+      alert("Please repeat your password");
       return;
     }
     createUserWithEmailAndPassword(
@@ -68,7 +68,7 @@ export const WelcomeView = () =>{
     <>
     <div className="welcome">
     {/* <img src={TodoSVG} className="todo-svg" /> */}
-      <h1>Todo-List-App</h1>
+      <h1>To-Do List App</h1>
       <div className="login-register-container">
         {isRegistering ? (
           <>

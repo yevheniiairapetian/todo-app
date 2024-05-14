@@ -68,8 +68,10 @@ export const MainView = () => {
                     return null
                 } 
                 else{
+                  let htmlRegexG = /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g;
+    let inputValue = $('.add-edit-input').val().replace(htmlRegexG, '');
         set(ref(db, `/${auth.currentUser.uid}/${uidd}`), {
-          todo: todo,
+          todo: inputValue,
           uidd: uidd
         });
     
@@ -104,7 +106,8 @@ export const MainView = () => {
     return (
         <div className="">
         <div className="App">
-            <h1 style={{color:"#529fcc"}}> TODO List App</h1>
+            <h1 className="homepage-h1" style={{color:"#529fcc", backgroundColor:"#000"}}> TODO List App</h1>
+            <LogoutIcon onClick={handleSignOut} className="logout-icon" />
             <div className="homepage">
       <input
         className="add-edit-input"
@@ -113,7 +116,7 @@ export const MainView = () => {
         value={todo}
         onChange={(e) => setTodo(e.target.value)}
       />
-
+<div className="todos-container">
       {todos.map((todo) => (
         <div className="todo">
           <h1>{todo.todo}</h1>
@@ -131,7 +134,7 @@ export const MainView = () => {
           />
         </div>
       ))}
-
+</div>
       {isEdit ? (
         <div>
             {/* <button onClick={handleEditConfirm}>Confirm Edit</button> */}
@@ -144,7 +147,7 @@ export const MainView = () => {
         </div>
       )}
       {/* <button onClick={handleSignOut}>Logout</button> */}
-        <LogoutIcon onClick={handleSignOut} className="logout-icon" />
+       
     </div>
             
         </div>

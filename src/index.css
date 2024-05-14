@@ -46,10 +46,16 @@ code {
     color:rgba(82, 159, 204);
     align-self: end;
     margin-top: auto;
-  } 
+   
+  }
+  
+  footer p em{
+    font-style: normal;
+  }
   
   footer a{
     color:whitesmoke;
+    font-style: italic;
   }
 
 
@@ -99,6 +105,24 @@ code {
     cursor: pointer;
   }
   
+
+.footer-links{
+  padding-right:7px;
+  padding-left: 7px;
+  font-size: large;
+}
+
+.footer-links-container{
+  padding-top:6px;
+  width:100%;
+}
+
+.footer-links:hover{
+ color:#529fcc;
+ translate: 0px -4px;
+ transition: all 0.2s ease;
+}
+
   .todo {
     display: flex;
     align-items: center;
@@ -135,9 +159,14 @@ code {
     background: #000;
     color: white;
   }
+  
+  .logout-icon:hover {
+    cursor: pointer;
+    color:#529fcc;
+  transition: all 0.2s ease;
+  }
 
-
-
+  
 
   .welcome {
     margin: auto;
@@ -207,7 +236,7 @@ code {
     background-color: #529fcc;
     font-size: 20px;
     margin-top: 10px;
-    font-family: "Changa One";
+    /* font-family: "Changa One"; */
     font-weight: normal;
     color: white;
   }

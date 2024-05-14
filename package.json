@@ -20,6 +20,9 @@
     "jquery": "^3.7.1",
     "jquery-ui": "^1.13.3"
   },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "<version>"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

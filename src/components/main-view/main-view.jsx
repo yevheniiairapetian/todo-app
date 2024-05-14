@@ -106,7 +106,7 @@ export const MainView = () => {
     return (
         <div className="">
         <div className="App">
-            <h1 className="homepage-h1" style={{color:"#529fcc", backgroundColor:"#000"}}> TODO List App</h1>
+            <h1 className="homepage-h1" style={{color:"#529fcc", backgroundColor:"#000"}}> Gimme Tasks! App</h1>
             <LogoutIcon onClick={handleSignOut} className="logout-icon" />
             <div className="homepage">
       <input

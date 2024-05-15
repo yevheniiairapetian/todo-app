@@ -12,7 +12,8 @@ import { set, ref, onValue, remove, update } from "firebase/database";
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CheckIcon from '@mui/icons-material/Check';
-import AddIcon from '@mui/icons-material/Add';
+// import AddIcon from '@mui/icons-material/Add';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import LogoutIcon from '@mui/icons-material/Logout';
 
 export const MainView = () => {     
@@ -30,11 +31,14 @@ export const MainView = () => {
             // read
             onValue(ref(db, `/${auth.currentUser.uid}`), (snapshot) => {
               setTodos([]);
+              
               const data = snapshot.val();
               if (data !== null) {
                 Object.values(data).map((todo) => {
                   setTodos((oldArray) => [...oldArray, todo]);
+                  
                 });
+                
               }
             });
           } else if (!user) {
@@ -59,6 +63,8 @@ export const MainView = () => {
             alert(err.message);
           });
       };
+
+      // const touchPunch = (a) =>{{function f(a,b){if(!(a.originalEvent.touches.length>1)){a.preventDefault();var c=a.originalEvent.changedTouches[0],d=document.createEvent("MouseEvents");d.initMouseEvent(b,!0,!0,window,1,c.screenX,c.screenY,c.clientX,c.clientY,!1,!1,!1,!1,0,null),a.target.dispatchEvent(d)}}if(a.support.touch="ontouchend"in document,a.support.touch){var e,b=a.ui.mouse.prototype,c=b._mouseInit,d=b._mouseDestroy;b._touchStart=function(a){var b=this;!e&&b._mouseCapture(a.originalEvent.changedTouches[0])&&(e=!0,b._touchMoved=!1,f(a,"mouseover"),f(a,"mousemove"),f(a,"mousedown"))},b._touchMove=function(a){e&&(this._touchMoved=!0,f(a,"mousemove"))},b._touchEnd=function(a){e&&(f(a,"mouseup"),f(a,"mouseout"),this._touchMoved||f(a,"click"),e=!1)},b._mouseInit=function(){var b=this;b.element.bind({touchstart:a.proxy(b,"_touchStart"),touchmove:a.proxy(b,"_touchMove"),touchend:a.proxy(b,"_touchEnd")}),c.call(b)},b._mouseDestroy=function(){var b=this;b.element.unbind({touchstart:a.proxy(b,"_touchStart"),touchmove:a.proxy(b,"_touchMove"),touchend:a.proxy(b,"_touchEnd")}),d.call(b)}}}(jQuery);}
     
       // add
       const writeToDatabase = () => {
@@ -68,11 +74,15 @@ export const MainView = () => {
                     return null
                 } 
                 else{
+                  
                   let htmlRegexG = /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g;
     let inputValue = $('.add-edit-input').val().replace(htmlRegexG, '');
+    
         set(ref(db, `/${auth.currentUser.uid}/${uidd}`), {
+          
           todo: inputValue,
           uidd: uidd
+          
         });
     
         setTodo("");
@@ -117,9 +127,12 @@ export const MainView = () => {
         onChange={(e) => setTodo(e.target.value)}
       />
 <div className="todos-container">
-      {todos.map((todo) => (
+  
+      {
+      todos.map((todo) => (
         <div className="todo">
-          <h1>{todo.todo}</h1>
+          
+        <h1 >{todo.todo}</h1>
           <ModeEditIcon
             fontSize="large"
             onClick={() => handleUpdate(todo)}
@@ -143,7 +156,7 @@ export const MainView = () => {
       ) : (
         <div>
             {/* <button onClick={writeToDatabase}>Confirm Post</button> */}
-          <AddIcon onClick={writeToDatabase} className="add-confirm-icon" />
+          <AddCircleOutlineIcon onClick={writeToDatabase} className="add-confirm-icon" />
         </div>
       )}
       {/* <button onClick={handleSignOut}>Logout</button> */}

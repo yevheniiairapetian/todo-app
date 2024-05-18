@@ -16,174 +16,189 @@ import CheckIcon from '@mui/icons-material/Check';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import LogoutIcon from '@mui/icons-material/Logout';
 
-export const MainView = () => {     
-        
-    const [isEdit, setIsEdit] = useState(false);
-    const [tempUidd, setTempUidd] = useState("");
-    const navigate = useNavigate();
-    const [todo, setTodo] = useState("");
-    const [todos, setTodos] = useState([]);
-    // const [input, setInput] = useState('');
-    
-    useEffect(() => {
-        auth.onAuthStateChanged((user) => {
-          if (user) {
-            // read
-            onValue(ref(db, `/${auth.currentUser.uid}`), (snapshot) => {
-              setTodos([]);
-              
-              const data = snapshot.val();
-              if (data !== null) {
-                Object.values(data).map((todo) => {
-                  setTodos((oldArray) => [...oldArray, todo]);
-                  
-                });
-                
-              }
+export const MainView = () => {
+
+  const [isEdit, setIsEdit] = useState(false);
+  const [tempUidd, setTempUidd] = useState("");
+  const navigate = useNavigate();
+  const [todo, setTodo] = useState("");
+  const [todos, setTodos] = useState([]);
+  // const [input, setInput] = useState('');
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        // read
+        onValue(ref(db, `/${auth.currentUser.uid}`), (snapshot) => {
+          setTodos([]);
+
+          const data = snapshot.val();
+          if (data !== null) {
+            Object.values(data).map((todo) => {
+              setTodos((oldArray) => [...oldArray, todo]);
+
             });
-          } else if (!user) {
-            navigate("/");
+
           }
         });
-      }, []);
-    // const addTodo = (e) => {
-    //     e.preventDefault();
-    //     if(!input){
-    //         $('#exampleModal').fadeIn();
-    //         return null
-    //     } 
-    //     else{
-        
-    const handleSignOut = () => {
-        signOut(auth)
-          .then(() => {
-            navigate("/");
-          })
-          .catch((err) => {
-            alert(err.message);
-          });
-      };
+      } else if (!user) {
+        navigate("/");
+      }
+    });
+  }, []);
 
-      // const touchPunch = (a) =>{{function f(a,b){if(!(a.originalEvent.touches.length>1)){a.preventDefault();var c=a.originalEvent.changedTouches[0],d=document.createEvent("MouseEvents");d.initMouseEvent(b,!0,!0,window,1,c.screenX,c.screenY,c.clientX,c.clientY,!1,!1,!1,!1,0,null),a.target.dispatchEvent(d)}}if(a.support.touch="ontouchend"in document,a.support.touch){var e,b=a.ui.mouse.prototype,c=b._mouseInit,d=b._mouseDestroy;b._touchStart=function(a){var b=this;!e&&b._mouseCapture(a.originalEvent.changedTouches[0])&&(e=!0,b._touchMoved=!1,f(a,"mouseover"),f(a,"mousemove"),f(a,"mousedown"))},b._touchMove=function(a){e&&(this._touchMoved=!0,f(a,"mousemove"))},b._touchEnd=function(a){e&&(f(a,"mouseup"),f(a,"mouseout"),this._touchMoved||f(a,"click"),e=!1)},b._mouseInit=function(){var b=this;b.element.bind({touchstart:a.proxy(b,"_touchStart"),touchmove:a.proxy(b,"_touchMove"),touchend:a.proxy(b,"_touchEnd")}),c.call(b)},b._mouseDestroy=function(){var b=this;b.element.unbind({touchstart:a.proxy(b,"_touchStart"),touchmove:a.proxy(b,"_touchMove"),touchend:a.proxy(b,"_touchEnd")}),d.call(b)}}}(jQuery);}
-    
-      // add
-      const writeToDatabase = () => {
-        const uidd = uid();
-        if(!todo){
-                    // $('#exampleModal').fadeIn();
-                    return null
-                } 
-                else{
-                  
-                  let htmlRegexG = /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g;
-    let inputValue = $('.add-edit-input').val().replace(htmlRegexG, '');
-    
-        set(ref(db, `/${auth.currentUser.uid}/${uidd}`), {
-          
-          todo: inputValue,
-          uidd: uidd
-          
-        });
-    
-        setTodo("");
-        setIsEdit(false);
+
+
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
+  };
+
+  // const touchPunch = (a) =>{{function f(a,b){if(!(a.originalEvent.touches.length>1)){a.preventDefault();var c=a.originalEvent.changedTouches[0],d=document.createEvent("MouseEvents");d.initMouseEvent(b,!0,!0,window,1,c.screenX,c.screenY,c.clientX,c.clientY,!1,!1,!1,!1,0,null),a.target.dispatchEvent(d)}}if(a.support.touch="ontouchend"in document,a.support.touch){var e,b=a.ui.mouse.prototype,c=b._mouseInit,d=b._mouseDestroy;b._touchStart=function(a){var b=this;!e&&b._mouseCapture(a.originalEvent.changedTouches[0])&&(e=!0,b._touchMoved=!1,f(a,"mouseover"),f(a,"mousemove"),f(a,"mousedown"))},b._touchMove=function(a){e&&(this._touchMoved=!0,f(a,"mousemove"))},b._touchEnd=function(a){e&&(f(a,"mouseup"),f(a,"mouseout"),this._touchMoved||f(a,"click"),e=!1)},b._mouseInit=function(){var b=this;b.element.bind({touchstart:a.proxy(b,"_touchStart"),touchmove:a.proxy(b,"_touchMove"),touchend:a.proxy(b,"_touchEnd")}),c.call(b)},b._mouseDestroy=function(){var b=this;b.element.unbind({touchstart:a.proxy(b,"_touchStart"),touchmove:a.proxy(b,"_touchMove"),touchend:a.proxy(b,"_touchEnd")}),d.call(b)}}}(jQuery);}
+
+  // add
+  const writeToDatabase = () => {
+    const uidd = uid();
+    if (!todo) {
+      // $('#exampleModal').fadeIn();
+      return null
     }
-      };
-    
-      // update
-      const handleUpdate = (todo) => {
-        setIsEdit(true);
-        setTodo(todo.todo);
-        setTempUidd(todo.uidd);
-      };
-    
-      const handleEditConfirm = () => {
-        update(ref(db, `/${auth.currentUser.uid}/${tempUidd}`), {
-          todo: todo,
-          tempUidd: tempUidd
-        });
-    
-        setTodo("");
-        setIsEdit(false);
-      };
-    
-      // delete
-      const handleDelete = (uid) => {
-        remove(ref(db, `/${auth.currentUser.uid}/${uid}`));
-      };
-    
+    else {
+
+      let htmlRegexG = /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g;
+      let inputValue = $('.add-edit-input').val().replace(htmlRegexG, '');
+
+      set(ref(db, `/${auth.currentUser.uid}/${uidd}`), {
+
+        todo: inputValue,
+        uidd: uidd
+
+      });
+
+      setTodo("");
+      setIsEdit(false);
+    }
+  };
+
+  // update
+  const handleUpdate = (todo) => {
+    setIsEdit(true);
+    setTodo(todo.todo);
+    setTempUidd(todo.uidd);
+  };
+
+  const handleEditConfirm = () => {
+    update(ref(db, `/${auth.currentUser.uid}/${tempUidd}`), {
+      todo: todo,
+      tempUidd: tempUidd
+    });
+
+    setTodo("");
+    setIsEdit(false);
+
+  };
+
+  // delete
+
+  const handleDelete = (uid) => {
+    remove(ref(db, `/${auth.currentUser.uid}/${uid}`));
+  };
+
+
+
+  // const handleClick = event => {
+  //   if (event.target.style.textDecoration) {
+  //     event.target.style.removeProperty('text-decoration');
       
-    return (
-        <div className="">
-        <div className="App">
-            <h1 className="homepage-h1" style={{color:"#529fcc", backgroundColor:"#000"}}> Gimme Tasks! App</h1>
-            <LogoutIcon onClick={handleSignOut} className="logout-icon" />
-            <div className="homepage">
-      <input
-        className="add-edit-input"
-        type="text"
-        placeholder="Add todo..."
-        value={todo}
-        onChange={(e) => setTodo(e.target.value)}
-      />
-<div className="todos-container">
+  //   } else {
+  //     event.target.style.setProperty('text-decoration', 'line-through');
+      
+  //   }
+
+
+  // };
   
-      {
-      todos.map((todo) => (
-        <div className="todo">
-          
-        <h1 >{todo.todo}</h1>
-          <ModeEditIcon
-            fontSize="large"
-            onClick={() => handleUpdate(todo)}
-            className="edit-button"
+
+
+  return (
+    <div className="">
+      <div className="App">
+        <h1 className="homepage-h1" style={{ color: "#529fcc", backgroundColor: "#000" }}> Gimme Tasks! App</h1>
+        <LogoutIcon onClick={handleSignOut} className="logout-icon" />
+        <div className="homepage">
+          <input
+            className="add-edit-input"
+            type="text"
+            placeholder="Add todo..."
+            value={todo}
+            onChange={(e) => setTodo(e.target.value)}
           />
-          {/* <button onClick={() => handleUpdate(todo)}>Edit Todo</button> */}
-          {/* <button onClick={() => handleDelete(todo.uidd)}>Delete Todo</button> */}
-          <DeleteIcon
-            fontSize="large"
-            onClick={() => handleDelete(todo.uidd)}
-            className="delete-button"
-          />
+          <div className="todos-container">
+
+            {
+              todos.map((todo) => (
+                <div 
+                // onClick={handleClick} 
+                className="todo">
+
+                  <h1 className="todo-h1">{todo.todo}</h1>
+                  <ModeEditIcon
+                    fontSize="large"
+                    onClick={() => handleUpdate(todo)}
+                    className="edit-button"
+                  />
+                  {/* <button onClick={() => handleUpdate(todo)}>Edit Todo</button> */}
+                  {/* <button onClick={() => handleDelete(todo.uidd)}>Delete Todo</button> */}
+                  <DeleteIcon
+                    fontSize="large"
+                    onClick={() => handleDelete(todo.uidd)}
+                    className="delete-button"
+                  />
+                </div>
+              ))}
+          </div>
+          {isEdit ? (
+            <div>
+              {/* <button onClick={handleEditConfirm}>Confirm Edit</button> */}
+              <CheckIcon onClick={handleEditConfirm} className="add-confirm-icon" />
+            </div>
+          ) : (
+            <div>
+              {/* <button onClick={writeToDatabase}>Confirm Post</button> */}
+              <AddCircleOutlineIcon onClick={writeToDatabase} className="add-confirm-icon" />
+            </div>
+          )}
+          {/* <button onClick={handleSignOut}>Logout</button> */}
+
         </div>
-      ))}
-</div>
-      {isEdit ? (
-        <div>
-            {/* <button onClick={handleEditConfirm}>Confirm Edit</button> */}
-            <CheckIcon onClick={handleEditConfirm} className="add-confirm-icon" />
+
+      </div>
+      <Footer />
+      <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title fs-5" id="exampleModalLabel">Notice</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p class="dialog-paragraph">Please type in the new to-do and click <em>"Add New To-do"
+                button or press "Enter" key</em>.</p>
+            </div>
+            <div class="modal-footer">
+              <button onClick={() => { $('#exampleModal').fadeOut() }} type="button" class="button" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
         </div>
-      ) : (
-        <div>
-            {/* <button onClick={writeToDatabase}>Confirm Post</button> */}
-          <AddCircleOutlineIcon onClick={writeToDatabase} className="add-confirm-icon" />
-        </div>
-      )}
-      {/* <button onClick={handleSignOut}>Logout</button> */}
-       
+      </div>
+
+
     </div>
-            
-        </div>
-        <Footer/>
-        <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h4 class="modal-title fs-5" id="exampleModalLabel">Notice</h4>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-						<p class="dialog-paragraph">Please type in the new to-do and click <em>"Add New To-do"
-								button or press "Enter" key</em>.</p>
-					</div>
-					<div class="modal-footer">
-						<button onClick={() => {$('#exampleModal').fadeOut()}} type="button" class="button" data-bs-dismiss="modal">Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
-        
-    
-    </div>
-    )
+  )
 }

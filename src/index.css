@@ -85,6 +85,7 @@ code {
   
   .add-edit-input {
     position: absolute;
+    border-radius: 28px;
     top: 36px;
     right:38%;
     left:38%;
@@ -101,7 +102,7 @@ code {
     transform: scale(2);
     top: 42px;
     /* right: 40%; */
-    left: 59.5%;
+    left: 58%;
     cursor: pointer;
   }
   
@@ -130,6 +131,9 @@ code {
     flex-direction: row;
     margin-bottom: 10px;
     word-wrap: break-word;
+    /* margin-bottom: 10px; */
+    margin-left: 34px;
+    margin-right: 34px;
   }
   
   .todo > h1 {
@@ -159,7 +163,84 @@ code {
     background: #000;
     color: white;
   }
+
+  .modal-header{
+    display: none;
+
+  }
+  .modal-body{
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+   
+    width: 100%;
+  }
+
+  .modal-title{
+    color: whitesmoke;
+    width: 90px;
+    height:30px;
+    text-align:center;
+  }
+
+  .modal-content{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    padding: 15px 14px 0px 14px;
+    height: 118px;
+    background-color: #222020;
+    border-radius: 18px;
+    flex-direction: row;
+    
+  }
   
+
+  .modal-button{
+    background-color: rgba(82, 159, 204);
+    width: 100px !important;
+    height:40px !important;
+    text-align: center;
+    border-radius: 8px;
+    font-size:16px;
+  }
+  .modal-footer{
+    
+    text-align: center;
+  }
+
+  .dialog-paragraph{
+    color: whitesmoke;
+    line-height: 2em;
+    font-size: 18px;
+    text-align:center;
+  }
+
+  button.btn-close{
+    visibility: hidden;
+  }
+
+  .dialog-instructions{
+    color: rgba(82, 159, 204);
+  }
+
+  .user-email-container {
+    /* cursor: pointer; */
+    position: absolute;
+    top: 14px;
+    right: 60px;
+    padding: 20px;
+    background: #000;
+    color: white;
+    padding-top:0;
+    padding-bottom: 0;
+  }
+  
+  .user-email{
+color: #529fcc;
+  }
+
   .logout-icon:hover {
     cursor: pointer;
     color:#529fcc;
@@ -306,7 +387,23 @@ code {
 
   .strike{text-decoration: line-through;}
 
+  @media screen and (min-width:1088px){
+    .add-confirm-icon{
+      left:59% !important;
+     }
+  }
   
+  @media screen and (max-width:500px){
+    div.modal-body{
+      padding-bottom: 30px !important;
+  
+    }
+    .modal-content{
+      height: 150px;
+    }
+    
+  }
+
   @media screen and (max-width:431px){
     div.todo h1{
       width:90%;
@@ -346,8 +443,24 @@ code {
     right:0;
    }
    .add-confirm-icon{
-    left:88.5% !important;
+    left:90.5% !important;
    }
+   .modal-content{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    padding: 15px 14px 80px 14px !important;
+    height: 118px;
+    background-color: #222020;
+    border-radius: 18px;
+    flex-direction: row;
+    
+  }
+  .dialog-paragraph{
+    padding: 15px 14px 10px 14px !important;
+  }
+ 
   }
 
 
@@ -366,6 +479,19 @@ code {
     outline: 3px solid #529fcc;
   }
   
+  .user-email-container {
+    /* cursor: pointer; */
+    position: absolute;
+    top: 60px;
+
+    left: 0;
+    padding: 20px;
+    background: #000;
+    color: white;
+    padding-top:0;
+    padding-bottom: 0;
+  }
+
   .add-confirm-icon {
     position: absolute;
     transform: scale(2);
@@ -412,5 +538,9 @@ code {
         padding-top: 0 !important;
         position:absolute;
         top:120px;
+      }
+
+      .homepage-h1{
+        height: 86px;
       }
   }

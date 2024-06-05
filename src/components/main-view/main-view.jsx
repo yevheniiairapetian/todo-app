@@ -13,7 +13,7 @@ import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CheckIcon from '@mui/icons-material/Check';
 // import AddIcon from '@mui/icons-material/Add';
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 import LogoutIcon from '@mui/icons-material/Logout';
 
 export const MainView = () => {
@@ -66,7 +66,7 @@ export const MainView = () => {
   const writeToDatabase = () => {
     const uidd = uid();
     if (!todo) {
-      // $('#exampleModal').fadeIn();
+      $('#exampleModal').fadeIn();
       return null
     }
     else {
@@ -130,6 +130,9 @@ export const MainView = () => {
     <div className="">
       <div className="App">
         <h1 className="homepage-h1" style={{ color: "#529fcc", backgroundColor: "#000" }}> Gimme Tasks! App</h1>
+        <p className='user-email-container'>Logged in as <span className='user-email'>{auth.currentUser.email ? (
+                        auth.currentUser.email
+                      ) : ("Logged out")}</span></p>
         <LogoutIcon onClick={handleSignOut} className="logout-icon" />
         <div className="homepage">
           <input
@@ -171,7 +174,7 @@ export const MainView = () => {
           ) : (
             <div>
               {/* <button onClick={writeToDatabase}>Confirm Post</button> */}
-              <AddCircleOutlineIcon onClick={writeToDatabase} className="add-confirm-icon" />
+              <PlaylistAddIcon onClick={writeToDatabase} className="add-confirm-icon" />
             </div>
           )}
           {/* <button onClick={handleSignOut}>Logout</button> */}
@@ -184,15 +187,16 @@ export const MainView = () => {
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title fs-5" id="exampleModalLabel">Notice</h4>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <h4 class="modal-title fs-5" id="exampleModalLabel"></h4>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <p class="dialog-paragraph">Please type in the new to-do and click <em>"Add New To-do"
-                button or press "Enter" key</em>.</p>
+              <p class="dialog-paragraph">Please type in the new to-do and click <em className='dialog-instructions'>"Add Todo"
+                button</em>.</p>
+                <button onClick={() => { $('#exampleModal').fadeOut() }} type="button" className="modal-button" data-bs-dismiss="modal">Alrighty!</button>
             </div>
             <div class="modal-footer">
-              <button onClick={() => { $('#exampleModal').fadeOut() }} type="button" class="button" data-bs-dismiss="modal">Close</button>
+              
             </div>
           </div>
         </div>

@@ -196,8 +196,8 @@ export const MainView = () => {
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <p class="dialog-paragraph">Please type in the new to-do and click <em className='dialog-instructions'>"Add Todo"
-                button</em>.</p>
+              <p class="dialog-paragraph">Please type in the new to-do and click the <em className='dialog-instructions'>"+"
+                </em> button.</p>
                 <button onClick={() => { $('#exampleModal').fadeOut() }} type="button" className="modal-button" data-bs-dismiss="modal">Alrighty!</button>
             </div>
             <div class="modal-footer">

@@ -8,7 +8,7 @@ export const Footer = () => {
     return(
         <footer style={{ textAlign: "center" }} class="text-center">
 			<p><em>Gimme Tasks! App</em></p>
-			<p><em><a href="https://github.com/yevheniiairapetian" target="_blank">Yevhenii Airapetian, 2024</a></em></p>
+			{/* <p><em><a href="https://github.com/yevheniiairapetian" target="_blank">Yevhenii Airapetian, 2024</a></em></p> */}
             
         
 <div className="footer-links-container">

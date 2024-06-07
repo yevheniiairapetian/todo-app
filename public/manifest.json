@@ -1,6 +1,11 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "Gimme Tasks! App",
+    "short_name": "Gimme Tasks!",
+    "theme_color": "#529fcc",
+    "background_color": "#ffffff",
+    "display": "minimal-ui",
+    "scope": "/",
+    "start_url": ".",
   "icons": [
     {
       "src": "favicon.ico",
@@ -17,9 +22,5 @@
       "type": "image/png",
       "sizes": "512x512"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  ]
 }

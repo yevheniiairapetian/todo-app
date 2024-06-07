@@ -133,18 +133,21 @@ export const MainView = () => {
         <p className='user-email-container'><span className='user-email'>
         
           </span></p>
+          
         <LogoutIcon onClick={handleSignOut} className="logout-icon" />
         <div className="homepage">
+        <h3 style={{position:"absolute", top:0}} className='plans-h3'>Hey! <br/><span className='victory-span'>&#9876; Victory loves preparation! &#9876;</span><br/>What's your next goal?</h3>
+
           <input
             className="add-edit-input"
             type="text"
-            placeholder="Add todo..."
+            placeholder="Add to-do..."
             value={todo}
             onChange={(e) => setTodo(e.target.value)}
           />
           
           <div className="todos-container">
-          <h3 className='plans-h3'>Hey! <br/><span className='victory-span'>&#9876; Victory loves preparation! &#9876;</span><br/>What's your next goal?</h3>
+          
             {
               todos.map((todo) => (
                 <ol 

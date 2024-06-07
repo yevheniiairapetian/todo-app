@@ -89,9 +89,10 @@ code {
   } 
   
   .add-edit-input {
+    z-index: 1;
     position: absolute;
     border-radius: 28px;
-    top: 36px;
+    top: 136px;
     right:38%;
     left:38%;
     outline: none;
@@ -113,6 +114,7 @@ code {
     outline: 1px solid #529fcc;
     background-color: #529fcc;
     color:whitesmoke !important;
+    transition: all 0.1s ease-in;
   }
 
   .password-input:focus::placeholder, .email-input:focus::placeholder{
@@ -128,10 +130,11 @@ code {
   .add-confirm-icon {
     position: absolute;
     transform: scale(2);
-    top: 42px;
+    top: 132px;
     /* right: 40%; */
     left: 58%;
     cursor: pointer;
+    z-index: 1;
   }
   
 
@@ -163,6 +166,11 @@ code {
     /* margin-bottom: 10px; */
     margin-left: 34px;
     margin-right: 34px;
+  }
+
+  .todo:first-child{
+    margin-top:90px;
+
   }
   
 .plans-h3{
@@ -460,6 +468,15 @@ color: #529fcc;
     
   }
 
+
+  @media screen and (max-width:329px){
+.plans-h3{
+  font-size: 19px;
+}
+  }
+
+
+
   @media screen and (max-width:431px){
     div.todo li{
       width:90%;
@@ -514,14 +531,15 @@ top:0;
       top:120px;
     }
    input.add-edit-input{
-    width:88.5%;
+    width:78.5%;
     left:0;
     right:0;
     padding: 5px 58px 5px 10px;
 
    }
    .add-confirm-icon{
-    left:90.5% !important;
+    left:85.5% !important;
+    top: 143px !important;
    }
    .modal-content{
     width: 100%;
@@ -671,16 +689,39 @@ top:0;
         margin-bottom:0;
           }
       }
+
+
+      @media screen and (min-width:420px) and (max-width:820px){
+        .add-confirm-icon {
+          position: absolute;
+          transform: scale(2);
+          top: 141px;
+          /* right: 40%; */
+          left: 73% !important;
+          cursor: pointer;
+      }
+  }
+    
+
+
       @media screen and (min-width:820px){
 footer{
   margin-top:0;
+}
+.add-confirm-icon {
+  position: absolute;
+  transform: scale(2);
+  top: 143px;
+  /* right: 40%; */
+  /* left: 73.5%; */
+  cursor: pointer;
 }
       }
   @media screen and (max-width:820px){
 
 .add-edit-input {
     position: absolute;
-    top: 36px;
+    top: 132px;
     right:20%;
     left:20%;
     outline: none;
@@ -706,14 +747,13 @@ footer{
     padding-bottom: 0;
   }
 
-  .add-confirm-icon {
+  /* .add-confirm-icon {
     position: absolute;
     transform: scale(2);
-    top: 42px;
-    /* right: 40%; */
-    left: 73.5%;
+    top: 152px;
+    left: 84.5% !important;
     cursor: pointer;
-  }
+  } */
 
     .welcome > h1 {
       font-family: "Changa One";
@@ -765,7 +805,7 @@ footer{
       }
 
       .homepage-h1{
-        height: 86px;
+        height: 42px;
       }
       .todo-li{
         width:75% !important;

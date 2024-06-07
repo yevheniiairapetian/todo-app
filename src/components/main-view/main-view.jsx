@@ -144,7 +144,7 @@ export const MainView = () => {
           />
           
           <div className="todos-container">
-          <h3 className='plans-h3'>Hey! <br/><span className='victory-span'>Victory loves preparation! &#9876;</span><br/>What's your next goal?</h3>
+          <h3 className='plans-h3'>Hey! <br/><span className='victory-span'>&#9876; Victory loves preparation! &#9876;</span><br/>What's your next goal?</h3>
             {
               todos.map((todo) => (
                 <ol 

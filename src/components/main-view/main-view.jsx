@@ -130,9 +130,9 @@ export const MainView = () => {
     <div className="">
       <div className="App">
         <h1 className="homepage-h1" style={{ color: "#529fcc", backgroundColor: "#000" }}> Gimme Tasks! App</h1>
-        <p className='user-email-container'>Logged in as <span className='user-email'>{auth.currentUser.email ? (
-                        auth.currentUser.email
-                      ) : ("Logged out")}</span></p>
+        <p className='user-email-container'><span className='user-email'>
+        
+          </span></p>
         <LogoutIcon onClick={handleSignOut} className="logout-icon" />
         <div className="homepage">
           <input
@@ -142,15 +142,17 @@ export const MainView = () => {
             value={todo}
             onChange={(e) => setTodo(e.target.value)}
           />
+          
           <div className="todos-container">
-
+          <h3 className='plans-h3'>Hey! <br/><span className='victory-span'>Victory loves preparation! &#9876;</span><br/>What's your next goal?</h3>
             {
               todos.map((todo) => (
-                <div 
+                <ol 
                 // onClick={handleClick} 
                 className="todo">
+                  
 
-                  <h1 className="todo-h1">{todo.todo}</h1>
+                  <li data-icon="&#9745; " className="todo-li">{todo.todo}</li>
                   <ModeEditIcon
                     fontSize="large"
                     onClick={() => handleUpdate(todo)}
@@ -163,7 +165,7 @@ export const MainView = () => {
                     onClick={() => handleDelete(todo.uidd)}
                     className="delete-button"
                   />
-                </div>
+                </ol>
               ))}
           </div>
           {isEdit ? (

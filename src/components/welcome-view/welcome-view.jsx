@@ -73,6 +73,7 @@ export const WelcomeView = () =>{
         {isRegistering ? (
           <>
             <input
+            className="email-input"
               type="email"
               placeholder="Email"
               value={registerInformation.email}
@@ -84,6 +85,7 @@ export const WelcomeView = () =>{
               }
             />
             <input
+            className="email-input"
               type="email"
               placeholder="Confirm Email"
               value={registerInformation.confirmEmail}
@@ -95,6 +97,7 @@ export const WelcomeView = () =>{
               }
             />
             <input
+            className="password-input"
               type="password"
               placeholder="Password"
               value={registerInformation.password}
@@ -106,6 +109,7 @@ export const WelcomeView = () =>{
               }
             />
             <input
+              className="password-input"
               type="password"
               placeholder="Confirm Password"
               value={registerInformation.confirmPassword}
@@ -116,26 +120,29 @@ export const WelcomeView = () =>{
                 })
               }
             />
-            <button className="sign-in-register-button" onClick={handleRegister}>Register</button>
+            <button className="sign-in-register-button" onClick={handleRegister}>Sign me up!</button>
             <button className="create-account-button" onClick={() => setIsRegistering(false)}>Go back</button>
           </>
         ) : (
           <>
-            <input type="email" placeholder="Email" onChange={handleEmailChange} value={email} />
+            <input 
+            className="email-input"
+            type="email" placeholder="Email" onChange={handleEmailChange} value={email} />
             <input
+              className="password-input"
               type="password"
               onChange={handlePasswordChange}
               value={password}
               placeholder="Password"
             />
             <button className="sign-in-register-button" onClick={handleSignIn}>
-              Sign In
+              Log me in!
             </button>
             <button
               className="create-account-button"
               onClick={() => setIsRegistering(true)}
             >
-              Create an account
+              Register for free
             </button>
             
           

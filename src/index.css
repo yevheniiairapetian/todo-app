@@ -39,13 +39,18 @@ code {
   
   }
   footer{
-    padding:30px 0;
+    padding:1px 0 35px 0;
     width: 100%;
-    height:120px;
+    height:100px;
     background-color: #000;
     color:rgba(82, 159, 204);
     align-self: end;
     margin-top: auto;
+    position: fixed;
+    /* display: flex !important; */
+    text-align: center;
+    z-index: 3;
+    bottom: 0 !important;
    
   }
   
@@ -64,9 +69,9 @@ code {
     overflow: auto;
     height: 100vh;
     width: 100vw;
-    background: linear-gradient(315deg, rgb(8, 1, 23) 3%, rgb(59, 61, 62) 38%, rgb(28, 29, 31) 68%, rgb(49, 49, 50) 98%);
-    animation: gradient 15s ease infinite;
-    background-size: 400% 400%;
+    background-image: url('./../public/todo-bg.jpg');
+    /* animation: gradient 15s ease infinite; */
+    background-size: 90% 130%;
     background-attachment: fixed;
     display: flex;
     align-items: center;
@@ -74,7 +79,7 @@ code {
     flex-direction: column;
     position: relative;
 
-    animation: gradient 15s ease infinite;
+    /* animation: gradient 15s ease infinite; */
   }
 
   .homepage-h1{
@@ -93,10 +98,33 @@ code {
     border: none;
     height: 30px;
     font-size: 25px;
-    padding: 5px 20px;
+    padding: 5px 58px 5px 10px;
     outline: 3px solid #529fcc;
   }
+
+  .password-input, .email-input{
+    border-radius: 18px;
+    font-size:20px !important;
+    width:280px !important;
+    
+  }
+
+  .password-input:focus, .email-input:focus{
+    outline: 1px solid #529fcc;
+    background-color: #529fcc;
+    color:whitesmoke !important;
+  }
+
+  .password-input:focus::placeholder, .email-input:focus::placeholder{
+    outline: 1px solid #529fcc;
+    background-color: #529fcc;
+    color:whitesmoke !important;
+  }
   
+.victory-span{
+  color:#3887c7;
+}
+
   .add-confirm-icon {
     position: absolute;
     transform: scale(2);
@@ -125,6 +153,7 @@ code {
 }
 
   .todo {
+    list-style-type:none;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -136,15 +165,28 @@ code {
     margin-right: 34px;
   }
   
-  .todo > h1 {
+.plans-h3{
+  text-align: center;
+  font-size:22px;
+}
+
+  .todo > li {
     width: 500px;
     background-color: rgb(211, 211, 211);
     padding: 5px 10px;
+  }
+
+  .todo > li::before {
+    content: attr(data-icon);
+    /* Make slightly larger than the li font-size
+    but smaller than the li gap */
+    font-size: 1.25em;
   }
   
   .delete-button, .edit-button{
     cursor: pointer;
     margin-left: 10px;
+    font-size:28px !important;
   }
   .delete-button {
     color:rgb(185, 88, 88);
@@ -253,9 +295,9 @@ color: #529fcc;
     margin: auto;
     overflow: auto;
     height: 100vh;
-    width: 100vw;
-    background: linear-gradient(315deg, rgb(8, 1, 23) 3%, rgb(59, 61, 62) 38%, rgb(28, 29, 31) 68%, rgb(49, 49, 50) 98%);
-    animation: gradient 15s ease infinite;
+    width:100% !important;
+    /* background: linear-gradient(315deg, rgb(8, 1, 23) 3%, rgb(59, 61, 62) 38%, rgb(28, 29, 31) 68%, rgb(49, 49, 50) 98%); */
+    /* animation: gradient 15s ease infinite; */
     background-size: 400% 400%;
     background-attachment: fixed;
   }
@@ -275,22 +317,28 @@ color: #529fcc;
   .welcome > h1 {
     font-family: "Changa One";
     font-weight: normal;
-    font-size: 144px;
-    left: 46px;
-    top: 35px;
-    position: absolute;
-    color: #529fcc;
+    font-size: 104px;
+    margin: 0px auto 0 auto;
+    padding: 16px 10px;
+    position: static;
+    background-color: #529fcc;
+      color: whitesmoke;
+    text-align: center;
+    width:100%;
+   
   }
   
   .login-register-container {
-    position: absolute;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 20px 50px;
-    left: 36%;
-    top: 360px;
+    padding: 20px 20px;
+    /* left: 36%; */
+    height: 100%;
+    top: 0px;
+    width: 100%;
     background-image: url("./components/welcome-view/img/background.jpg");
     background-size: 140% 150%;
     background-attachment: fixed;
@@ -325,6 +373,13 @@ color: #529fcc;
   .create-account-button {
     background: none;
     margin-top: 10px;
+    font-size: 15px;
+  }
+
+  .todo-li{
+    height:auto;
+    font-size: 20px;
+    background-color: #529fcc !important;
   }
   
   .todo-svg {
@@ -405,23 +460,43 @@ color: #529fcc;
   }
 
   @media screen and (max-width:431px){
-    div.todo h1{
+    div.todo li{
       width:90%;
       margin-left:10px;
     }
 
-    div.login-register-container {
-      position: absolute;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      padding: 20px 50px;
-      top: 360px;
-      left:0px;
-      height:280px;
-      right:0px;
-      background-image: url("./components/welcome-view/img/background.jpg");
+    footer{
+      position:relative !important;
+      bottom:0 !important;
+      margin-top: 120px;
+     
+    }
+    .welcome > h1{
+      font-size: 30px !important;
+z-index: 1;
+left:0;
+top:0;    
+
+}
+    .login-register-container{
+      /* position: relative; */
+      left:0;
+      right: 0;
+      top:70px;
+      /* position: relative; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px 20px 60px 20px;
+  /* left: 36%; */
+  height: 100%;
+  /* top: 0px; */
+  width: 100%;
+  background-image: url("./components/welcome-view/img/background.jpg");
+  background-size: 140% 150%;
+  background-attachment: fixed;
+  margin-bottom:0;
     }
     button.create-account-button {
       font-size:18px;
@@ -441,6 +516,8 @@ color: #529fcc;
     width:88.5%;
     left:0;
     right:0;
+    padding: 5px 58px 5px 10px;
+
    }
    .add-confirm-icon{
     left:90.5% !important;
@@ -463,7 +540,141 @@ color: #529fcc;
  
   }
 
+  @media screen and (max-height:1200px){
 
+    /* .add-edit-input { */
+      /* width:30%; */
+        /* position: absolute;
+        top: 36px;
+        right:20%;
+        left:20%;
+        outline: none;
+        border: none;
+        height: 30px;
+        font-size: 25px;
+        padding: 5px 58px 5px 10px !important;
+    
+        padding: 5px 20px;
+        outline: 3px solid #529fcc;
+      } */
+      
+      .user-email-container {
+        /* cursor: pointer; */
+        position: absolute;
+        top: 60px;
+    
+        left: 0;
+        padding: 20px;
+        background: #000;
+        color: white;
+        padding-top:0;
+        padding-bottom: 0;
+      }
+    
+      /* .add-confirm-icon {
+        position: absolute;
+        transform: scale(2);
+        top: 42px;
+        left: 75% !important;
+        cursor: pointer;
+      } */
+    
+        .welcome > h1 {
+          font-family: "Changa One";
+          font-weight: normal;
+          font-size: 34px !important;
+          left: 46px;
+          top: 35px;
+          padding: 7px 10px !important;
+          position: absolute;
+          background-color: #529fcc;
+          color: whitesmoke;
+        }
+    
+        .login-register-container {
+          position: absolute;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          padding: 20px 50px;
+          top: 360px;
+          left:100px;
+          right:100px;
+          background-image: url("./components/welcome-view/img/background.jpg");
+        }
+    
+        .todo__list{
+          width: 90vw;
+          
+          }
+          .to-do-container{
+            padding-left: 0;
+          }
+          div.todos-container{
+            height: auto;
+            overflow-y: auto;
+            width:100%;
+            padding-top: 0 !important;
+            position:absolute;
+            top:120px;
+          }
+    
+          .homepage-h1{
+            height: 86px;
+          }
+          .todo-li{
+            width:75% !important;
+            margin: 0 auto;
+          }
+          footer{
+            position:relative !important;
+            bottom:0 !important;
+            margin-top: 120px;
+           
+          }
+          .welcome > h1{
+            z-index: 1;
+    top: 0 !important;
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    font-family: "Changa One";
+    font-weight: normal;
+    font-size: 104px;
+    margin: 0px auto 0 auto;
+    padding: 16px 10px;
+    position: static;
+    background-color: #529fcc;
+    color: whitesmoke;
+    text-align: center;
+    width: 100%;
+     
+     }
+          .login-register-container{
+            /* position: relative; */
+            
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px 20px;
+    left: 0;
+    height: 100%;
+    top: 0px;
+    width: 100%;
+        background-image: url("./components/welcome-view/img/background.jpg");
+        background-size: 140% 150%;
+        background-attachment: fixed;
+        margin-bottom:0;
+          }
+      }
+      @media screen and (min-width:820px){
+footer{
+  margin-top:0;
+}
+      }
   @media screen and (max-width:820px){
 
 .add-edit-input {
@@ -475,6 +686,8 @@ color: #529fcc;
     border: none;
     height: 30px;
     font-size: 25px;
+    padding: 5px 58px 5px 10px !important;
+
     padding: 5px 20px;
     outline: 3px solid #529fcc;
   }
@@ -504,23 +717,31 @@ color: #529fcc;
     .welcome > h1 {
       font-family: "Changa One";
       font-weight: normal;
-      font-size: 70px;
+      font-size: 40px !important;
       left: 46px;
       top: 35px;
+      padding: 10px 10px;
       position: absolute;
-      color: #529fcc;
+      background-color: #529fcc;
+      color: whitesmoke;
+    }
+
+    footer > p:first-child{
+      margin-top:0 !important;
     }
 
     .login-register-container {
-      position: absolute;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      padding: 20px 50px;
-      top: 360px;
-      left:100px;
-      right:100px;
+      padding: 0 0 10px 0 !important;
+      top: 92px !important;
+      left:0;
+      right:0;
+      height: 100%;
+      /* right:100px; */
       background-image: url("./components/welcome-view/img/background.jpg");
     }
 
@@ -542,5 +763,42 @@ color: #529fcc;
 
       .homepage-h1{
         height: 86px;
+      }
+      .todo-li{
+        width:75% !important;
+        margin: 0 auto;
+      }
+      footer{
+        position:relative !important;
+        bottom:0 !important;
+        margin-top: 0px;
+       
+      }
+      .welcome > h1{
+        font-size: 40px;
+z-index: 1;
+left:0;
+top:0;    
+ 
+ }
+      .login-register-container{
+        /* position: relative; */
+        left:0;
+        right: 0;
+        top:70px;
+        /* position: relative; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 42px 0px 60px 0px !important;
+    /* left: 36%; */
+    height: 100%;
+    /* top: 0px; */
+    width: 100%;
+    background-image: url("./components/welcome-view/img/background.jpg");
+    background-size: 140% 150%;
+    background-attachment: fixed;
+    margin-bottom:0;
       }
   }

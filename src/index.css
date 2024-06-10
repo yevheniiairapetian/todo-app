@@ -18,7 +18,7 @@ body {
   /* grid-template-rows: auto 1fr; */
 }
 
-#exampleModal, #exampleModal2, #exampleModal3, #exampleModal4, #exampleModal5{
+#exampleModal, #exampleModal2, #exampleModal3, #exampleModal4, #exampleModal5, #exampleModal6{
 	z-index: 3;
 	display:none;
 position: absolute;

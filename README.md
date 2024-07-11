@@ -1,6 +1,68 @@
-# Getting Started with Create React App
+# Gimme Task App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project contains a To-Do App created with React, Material UI, and Firestore. Users can register with an email address, and then add and manage their daily tasks in a responsive frontend interface.
+
+Read more about:
+- [Netlify](https://www.netlify.com/)
+## Available features
+
+Users can:
+1. Register/Log In.
+   - Users can register/log in with their email and password:
+   
+2. Manage tasks.
+   Users can manage their to-dos.
+   - Add a task
+   - Delete a task
+   - Update the tasks' text
+     
+3. See user-friendly notifications:
+   Upon entering invalid data, users are notified with the help of the modal windows that display further instructions: 
+   - When registration/authorization was unsuccessful   
+   - When an empty task was submitted
+   - 
+4. Install the app on mobile/desktop devices like a native app.
+When installed, it allows to:
+- Use the app, resembling a native-app experience.
+- Have an improved user experience
+- Experience cross-platform compatibility
+- Make use of faster loading times
+- Use offline accessibility
+- Have a smaller size than a native desktop app
+- Access the app quickly via a mobile home screen, a Windows/Mac taskbar, etc
+
+Read more about the Progressive Web Apps [here](https://www.itaims.com/blog/benefits-of-progressive-web-apps-pwa-advantages-and-disadvantages)
+
+
+## Technologies Used
+- React
+- Material UI
+- Responsive design
+- Progressive Web Apps (PWA)
+- Firebase
+- Netlify
+
+## Project Dependencies
+- Node v 16
+- React.js as a framework
+- Material UI for styling and icons
+- Firebase for database
+- Service worker for enabling PWA functionality
+- [Netlify](https://www.netlify.com/) for deployment
+
+## Clone and Preview 
+1. To clone the app use the following command:
+```console git clone git@github.com:yevheniiairapetian/todo-app```
+Or download directly by clicking on <> Code button > Download ZIP. Make sure you have Node installed on your machine. To check if you have Node installed, run the ```node -v``` command in the terminal. If Node is not installed, use the preferred package manager:
+- For npm on Windows, run the ```npm install nodejs``` command 
+- For Mac, run the ```brew install node``` command
+- For Linux Debian/Ubuntu-based systems run the ```sudo apt-get install nodejs``` command
+- For Red Hat/Fedora-based systems run the ```sudo yum install nodejs```
+command
+2. Then get back to the project folder and use the ```cd todo-app``` terminal command. Then run the ```npm i``` command (or similar, depending on the package manager) to install the project dependencies
+  3. After that, follow the scripts in the section below*
+  
+   (*_the commands below are listed for npm_)
 
 ## Available Scripts
 
@@ -29,42 +91,13 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Live Version
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The app is live at [gimmetask.com](https://gimmetask.com/)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Contact:
+Feel free to contact me via[ LinkedIn](https://www.linkedin.com/in/yevheniiairapetian/) or [email](mailto:contact@yevheniiairapetian.com) or via the contact information on my [portfolio](https://yevheniiairapetian.com/#/contact) 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

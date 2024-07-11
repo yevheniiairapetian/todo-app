@@ -29,7 +29,7 @@ Users can:
    - When an empty task was submitted
    
 4. Install the app on mobile/desktop devices like a native app.
-When installed, it allows to:
+   When installed, it allows to:
   - Use the app, resembling a native-app experience.
   - Have an improved user experience
   - Experience cross-platform compatibility

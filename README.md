@@ -61,10 +61,10 @@ Read more about the benefits that Progressive Web Apps have [here](https://www.i
 1. To clone the app use the following command:
 ```console git clone git@github.com:yevheniiairapetian/todo-app```
 Or download directly by clicking on <> Code button > Download ZIP. Make sure you have Node installed on your machine. To check if you have Node installed, run the ```node -v``` command in the terminal. If Node is not installed, use the preferred package manager:
-- For npm on Windows, run the ```npm install nodejs``` command 
-- For Mac, run the ```brew install node``` command
-- For Linux Debian/Ubuntu-based systems run the ```sudo apt-get install nodejs``` command
-- For Red Hat/Fedora-based systems run the ```sudo yum install nodejs```
+  - For npm on Windows, run the ```npm install nodejs``` command 
+  - For Mac, run the ```brew install node``` command
+  - For Linux Debian/Ubuntu-based systems run the ```sudo apt-get install nodejs``` command
+  - For Red Hat/Fedora-based systems run the ```sudo yum install nodejs```
 command
 2. Then get back to the project folder and use the ```cd todo-app``` terminal command. Then run the ```npm i``` command (or similar, depending on the package manager) to install the project dependencies
   3. After that, follow the scripts in the section below*

@@ -1,6 +1,6 @@
 # Gimme Task App
 
-This project contains a To-Do App created with React, Material UI, and Firestore. Users can register with an email address, and then add and manage their daily tasks in a responsive frontend interface.
+This project contains a To-Do App created with React, Material UI, and Firestore. Users can register with an email address, and then add and manage their daily tasks in a responsive frontend interface. The app is deployed to Netlify.
 
 Read more about:
 - [Netlify](https://www.netlify.com/)

@@ -4,6 +4,7 @@ This project contains a To-Do App created with React, Material UI, and Firestore
 
 Read more about:
 - [Netlify](https://www.netlify.com/)
+  
 ## Available features
 
 Users can:

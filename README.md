@@ -20,7 +20,7 @@ Users can:
    Upon entering invalid data, users are notified with the help of the modal windows that display further instructions: 
    - When registration/authorization was unsuccessful   
    - When an empty task was submitted
-   - 
+   
 4. Install the app on mobile/desktop devices like a native app.
 When installed, it allows to:
 - Use the app, resembling a native-app experience.

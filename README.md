@@ -5,6 +5,8 @@ This project contains a To-Do App created with React, Material UI, and Firestore
 Read more about:
 - [Netlify](https://www.netlify.com/)
 
+## Project Screenshot
+
 <a href="[https://ibb.co/j5pxNHR](https://ibb.co/j5pxNHR)"><img src="https://i.ibb.co/thdNG3X/2024-07-11-10h39-33.png" alt="Gimme Task to do app screenshot" border="0"></a>   
 
 

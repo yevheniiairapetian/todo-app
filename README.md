@@ -28,15 +28,15 @@ Users can:
    - When registration/authorization was unsuccessful   
    - When an empty task was submitted
    
-4. Install the app on mobile/desktop devices like a native app.
+4. Install the app on mobile/desktop devices like a native app:
    When installed, it allows to:
-  - Use the app, resembling a native-app experience.
-  - Have an improved user experience
-  - Experience cross-platform compatibility
-  - Make use of faster loading times
-  - Use offline accessibility
-  - Have a smaller size than a native desktop app
-  - Access the app quickly via a mobile home screen, a Windows/Mac taskbar, etc
+   - Use the app, resembling a native-app experience.
+   - Have an improved user experience
+   - Experience cross-platform compatibility
+   - Make use of faster loading times
+   - Use offline accessibility
+   - Have a smaller size than a native desktop app
+   - Access the app quickly via a mobile home screen, a Windows/Mac taskbar, etc
 
 Read more about the benefits that Progressive Web Apps have [here](https://www.itaims.com/blog/benefits-of-progressive-web-apps-pwa-advantages-and-disadvantages)
 

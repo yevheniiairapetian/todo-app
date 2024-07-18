@@ -85,7 +85,7 @@ code {
   .homepage-h1{
     margin-top:0;
     margin-bottom:0;
-    padding: 20px 14px;
+    padding: 20px 0 0 0;
   } 
   
   .add-edit-input {
@@ -141,12 +141,16 @@ code {
 .footer-links{
   padding-right:7px;
   padding-left: 7px;
-  font-size: large;
+  font-size: 35px !important;
 }
 
 .footer-links-container{
   padding-top:6px;
   width:100%;
+}
+
+footer.footer{
+  height: 120px !important;
 }
 
 .footer-links:hover{
@@ -174,6 +178,7 @@ code {
   }
   
 .plans-h3{
+  padding-top:26px;
   text-align: center;
   font-size:22px;
 }
@@ -210,8 +215,8 @@ code {
     top: 10px;
     right: 10px;
     padding: 20px;
-    background: #000;
-    color: white;
+    background: transparent;
+    color: black !important;
   }
 
   .modal-header{
@@ -767,6 +772,10 @@ footer{
       color: whitesmoke;
     }
 
+    .homepage-h1{
+      padding: 10px 0 0 0 !important;
+    }
+
     footer > p:first-child{
       margin-top:0 !important;
     }
@@ -844,4 +853,22 @@ top:0;
     background-attachment: fixed;
     margin-bottom:0;
       }
+  }
+
+  @media screen and (min-width:992px){
+    .homepage-h1{
+      padding:30px 0 0 0;
+    }
+  }
+
+  @media screen and (max-width:991.5px){
+    .homepage-h1{
+      padding:30px 0 0 0;
+    }
+  }
+
+  @media screen and (max-width:312px){
+    .homepage-h1{
+      font-size: 20px;
+    }
   }

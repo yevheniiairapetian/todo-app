@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 export const Footer = () => {
     return(
-        <footer style={{ textAlign: "center" }} class="text-center">
-			<p><em>Gimme Tasks! App, 2024 &copy;</em></p>
+        <footer style={{ textAlign: "center" }} className="text-center footer">
+			<p><em>Gimme Task App, 2024 &copy;</em></p>
 			{/* <p><em><a href="https://github.com/yevheniiairapetian" target="_blank">Yevhenii Airapetian, 2024</a></em></p> */}
             
         

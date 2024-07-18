@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { uid } from "uid";
 import { set, ref, onValue, remove, update } from "firebase/database";
 import { makeStyles } from '@mui/styles';
-
+import { NavigationBar } from '../navigation-bar/navigation-bar.jsx';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import DeleteIcon from '@mui/icons-material//Delete';
 import CheckIcon from '@mui/icons-material/Check';
@@ -52,15 +52,7 @@ export const MainView = () => {
 
 
 
-  const handleSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        navigate("/");
-      })
-      .catch((err) => {
-        $('#exampleModal5').fadeIn();
-      });
-  };
+  
 
  
   const writeToDatabase = () => {
@@ -127,14 +119,16 @@ export const MainView = () => {
 
 
   return (
+
     <div className="">
+                  <NavigationBar/>
+
       <div className="App">
-        <h1 className="homepage-h1" style={{ color: "#529fcc", backgroundColor: "#000" }}> Gimme Tasks! App</h1>
+
         <p className='user-email-container'><span className='user-email'>
         
           </span></p>
           
-        <LogoutIcon onClick={handleSignOut} className="logout-icon" />
         <div className="homepage">
         <h3 style={{position:"absolute", top:0}} className='plans-h3'>Hey! <br/><span className='victory-span'>&#9876; Victory loves preparation! &#9876;</span><br/>What's your next goal?</h3>
 
@@ -188,15 +182,15 @@ export const MainView = () => {
 
       </div>
       <Footer />
-      <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title fs-5" id="exampleModalLabel"></h4>
+      <div className="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h4 className="modal-title fs-5" id="exampleModalLabel"></h4>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-              <p class="dialog-paragraph">Please type in the new to-do and click the <em className='dialog-instructions'>"+"
+            <div className="modal-body" >
+              <p className="dialog-paragraph" style={{color:"#000"}}>Please type in the new to-do and click the <em className='dialog-instructions'>"+"
                 </em> button.</p>
                 <button onClick={() => { $('#exampleModal').fadeOut() }} type="button" className="modal-button" data-bs-dismiss="modal">Alrighty!</button>
             </div>
@@ -207,25 +201,7 @@ export const MainView = () => {
         </div>
       </div>
 
-
-      <div class="modal" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title fs-5" id="exampleModalLabel"></h4>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <p class="dialog-paragraph">Sign out failed. Please <em className='dialog-instructions'>check your network connection ot try again later
-                </em> button.</p>
-                <button onClick={() => { $('#exampleModal5').fadeOut() }} type="button" className="modal-button" data-bs-dismiss="modal">Alrighty!</button>
-            </div>
-            <div class="modal-footer">
-              
-            </div>
-          </div>
-        </div>
-      </div>
+      
 
     </div>
   )

@@ -76,7 +76,7 @@ export const WelcomeView = () => {
     <>
       <div className="welcome">
         {/* <img src={TodoSVG} className="todo-svg" /> */}
-        <h1>Gimme Tasks! App</h1>
+        <h1>Gimme Task App</h1>
         <div className="login-register-container">
           {isRegistering ? (
             <>
